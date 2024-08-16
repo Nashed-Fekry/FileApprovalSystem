@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileApprovalSystem", "FileApprovalSystem.csproj", "{1046D767-9BF3-4977-973A-82599B9830EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1046D767-9BF3-4977-973A-82599B9830EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1046D767-9BF3-4977-973A-82599B9830EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1046D767-9BF3-4977-973A-82599B9830EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1046D767-9BF3-4977-973A-82599B9830EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {595A1873-0CEF-45A3-BD5F-4C575C8834B7}
+	EndGlobalSection
+EndGlobal

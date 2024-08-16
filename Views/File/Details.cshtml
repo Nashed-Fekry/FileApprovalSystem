@@ -1,0 +1,158 @@
+﻿@model FileRecord
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-top: 40px;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .file-details {
+            flex: 1 1 50%;
+            padding-right: 20px;
+        }
+
+        .file-display {
+            flex: 1 1 45%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .file-display img, .file-display iframe {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+        .file-details dl dt {
+            font-weight: 600;
+            color: #007bff;
+        }
+
+        .file-details dl dd {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #343a40;
+        }
+
+        .btn-back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0 auto;
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-size: 16px;
+        }
+
+        .no-file {
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                File Details
+            </div>
+            <div class="card-body">
+                <div class="file-info">
+                    <!-- Section for file details -->
+                    <div class="file-details">
+                        <dl class="row">
+                            <b class="col-sm-4">File Number</b>
+                            <dd class="col-sm-8">@Model.FileNumber</dd>
+
+                            <b class="col-sm-4">Subject</b>
+                            <dd class="col-sm-8">@Model.Subject</dd>
+
+                            <b class="col-sm-4">Presenter</b>
+                            <dd class="col-sm-8">@Model.FilePresenter</dd>
+
+                            <b class="col-sm-4">Category</b>
+                            <dd class="col-sm-8">@Model.FileCategory</dd>
+
+                            <b class="col-sm-4">Responsible</b>
+                            <dd class="col-sm-8">@Model.ResponsibleEmployee</dd>
+
+                            <b class="col-sm-4">Status</b>
+                            <dd class="col-sm-8">@Model.FileStatus</dd>
+
+                            <b class="col-sm-4">Date</b>
+                            <dd class="col-sm-8">@Model.FileDate.ToString("dd MMM yyyy")</dd>
+                        </dl>
+                    </div>
+
+                    <!-- Section for file or image display -->
+                    <div class="file-display">
+                        @if (!string.IsNullOrEmpty(Model.UploadedFilePath))
+                        {
+                            @if (Model.UploadedFilePath.EndsWith(".pdf"))
+                            {
+                                <iframe src="@Model.UploadedFilePath" width="100%" height="400px"></iframe>
+                            }
+                            else if (Model.UploadedFilePath.EndsWith(".jpg") || Model.UploadedFilePath.EndsWith(".png") || Model.UploadedFilePath.EndsWith(".jpeg"))
+                            {
+                                <img src="@Model.UploadedFilePath" alt="Uploaded File" />
+                            }
+                            else
+                            {
+                                <a href="@Model.UploadedFilePath" target="_blank" class="btn btn-info">View File</a>
+                            }
+                        }
+                        else
+                        {
+                            <span class="no-file">No file uploaded</span>
+                        }
+                    </div>
+                </div>
+                <a href="@Url.Action("Index")" class="btn btn-secondary btn-back">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

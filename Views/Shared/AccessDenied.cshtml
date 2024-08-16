@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            padding: 30px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .card-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: darkred;
+        }
+
+        .card-body {
+            font-size: 1.2rem;
+            color: black;
+        }
+
+        .btn-home {
+            background-color: #f5c6cb;
+            color: #721c24;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+            .btn-home:hover {
+                background-color: red;
+                color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Access Denied
+            </div>
+            <div class="card-body">
+                <p><strong>You do not have permission to access this page.</strong></p>
+                <p>@TempData["AccessDeniedMessage"]</p>
+                <a asp-controller="File" asp-action="Index" class="btn btn-home">Return to Index</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
